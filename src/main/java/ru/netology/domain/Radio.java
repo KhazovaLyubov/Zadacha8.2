@@ -1,0 +1,71 @@
+package ru.netology.domain;
+
+public class Radio {
+       private int currentStation;
+       private int soundVolume;
+
+       public int getCurrentStation() {
+              return currentStation;
+       }
+       public void onNextSound() {
+              if (soundVolume == 10) {
+              }
+              if (soundVolume < 10) {
+                     this.soundVolume++;
+              }
+
+       }
+
+       public void onPreviousSound() {
+              if (soundVolume > 0) {
+                     this.soundVolume--;
+              }
+              if (soundVolume == 0) {
+              }
+       }
+
+       public void setCurrentStation(int currentStation) {
+              if (currentStation > 9) {
+                     return;
+              }
+              if (currentStation < 0) {
+                     return;
+              }
+              this.currentStation = currentStation;
+       }
+
+       public void onNextStation() {
+              if (currentStation < 9) {
+                     this.currentStation++;
+              }
+              if (currentStation == 9) {
+                     this.currentStation = 0;
+              }
+       }
+
+       public void onPreviousStation() {
+              if (currentStation > 0) {
+                     this.currentStation--;
+              }
+              if (currentStation == 0) {
+                     this.currentStation = 9;
+              }
+       }
+
+       public int getSoundVolume() {
+              return soundVolume;
+       }
+
+       public void setSoundVolume(int soundVolume) {
+              if (soundVolume > 10) {
+                     return;
+              }
+              if (soundVolume < 0) {
+                     return;
+              }
+              this.soundVolume = soundVolume;
+       }
+}
+
+
+
