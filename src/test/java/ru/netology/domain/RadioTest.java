@@ -7,12 +7,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class RadioTest {
 
     @Test
-    public void shouldCreate(){
+    public void shouldCreate ( ) {
         Radio radio = new Radio();
     }
 
     @Test
-    void SoundsVolumeMoreMax() {
+    void SoundsVolumeMoreMax ( ) {
         Radio radio = new Radio();
         int soundVolume = 11;
         int expected = 0;
@@ -21,7 +21,7 @@ class RadioTest {
     }
 
     @Test
-    void SoundsVolumeLessMin() {
+    void SoundsVolumeLessMin ( ) {
         Radio radio = new Radio();
         int soundVolume = -1;
         int expected = 0;
@@ -30,7 +30,7 @@ class RadioTest {
     }
 
     @Test
-    void shouldReturnSoundsVolume() {
+    void shouldReturnSoundsVolume ( ) {
         Radio radio = new Radio();
         int soundVolume = 6;
         int expected = 6;
@@ -39,7 +39,7 @@ class RadioTest {
     }
 
     @Test
-    void NextSoundVolume() {
+    void NextSoundVolume ( ) {
         Radio radio = new Radio();
         int soundVolume = 4;
         int expected = 5;
@@ -49,7 +49,7 @@ class RadioTest {
     }
 
     @Test
-    void NextSoundMax() {
+    void NextSoundMax ( ) {
         Radio radio = new Radio();
         int soundVolume = 10;
         int expected = 10;
@@ -59,7 +59,7 @@ class RadioTest {
     }
 
     @Test
-    void PreviousSound() {
+    void PreviousSound ( ) {
         Radio radio = new Radio();
         int soundVolume = 4;
         int expected = 3;
@@ -69,7 +69,7 @@ class RadioTest {
     }
 
     @Test
-    void PreviousSoundMin() {
+    void PreviousSoundMin ( ) {
         Radio radio = new Radio();
         int soundVolume = 0;
         int expected = 0;
@@ -79,7 +79,7 @@ class RadioTest {
     }
 
     @Test
-    void shouldReturnCurrentStation() {
+    void shouldReturnCurrentStation ( ) {
         Radio radio = new Radio();
         int currentStation = 6;
         int expected = 6;
@@ -88,7 +88,7 @@ class RadioTest {
     }
 
     @Test
-    void shouldReturnCurrentStationMore() {
+    void shouldReturnCurrentStationMore ( ) {
         Radio radio = new Radio();
         int currentStation = 10;
         int expected = 0;
@@ -97,7 +97,7 @@ class RadioTest {
     }
 
     @Test
-    void shouldReturnCurrentStationLess() {
+    void shouldReturnCurrentStationLess ( ) {
         Radio radio = new Radio();
         int currentStation = -1;
         int expected = 0;
@@ -106,7 +106,7 @@ class RadioTest {
     }
 
     @Test
-    void NextStation() {
+    void NextStation ( ) {
         Radio radio = new Radio();
         int currentStation = 4;
         int expected = 5;
@@ -116,7 +116,7 @@ class RadioTest {
     }
 
     @Test
-    void NextStationMax() {
+    void NextStationMax ( ) {
         Radio radio = new Radio();
         int currentStation = 9;
         int expected = 0;
@@ -126,7 +126,7 @@ class RadioTest {
     }
 
     @Test
-    void PreviousStationMin() {
+    void PreviousStationMin ( ) {
         Radio radio = new Radio();
         int currentStation = 0;
         int expected = 9;
@@ -136,7 +136,7 @@ class RadioTest {
     }
 
     @Test
-    void PreviousStation() {
+    void PreviousStation ( ) {
         Radio radio = new Radio();
         int currentStation = 4;
         int expected = 3;
