@@ -116,6 +116,16 @@ class RadioTest {
     }
 
     @Test
+    void NextStationAfterEight ( ) {
+        Radio radio = new Radio();
+        int currentStation = 8;
+        int expected = 9;
+        radio.setCurrentStation(currentStation);
+        radio.onNextStation();
+        assertEquals(expected, radio.getCurrentStation());
+    }
+
+    @Test
     void NextStationMax ( ) {
         Radio radio = new Radio();
         int currentStation = 9;

@@ -36,11 +36,12 @@ public class Radio {
     }
 
     public void onNextStation ( ) {
-        if (currentStation < 9) {
+        if (currentStation <= 9) {
             this.currentStation++;
         }
-        if (currentStation == 9) {
+        if (currentStation > 9) {
             this.currentStation = 0;
+
         }
     }
 
