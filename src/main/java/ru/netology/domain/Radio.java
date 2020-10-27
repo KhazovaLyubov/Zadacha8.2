@@ -1,6 +1,13 @@
 package ru.netology.domain;
 
-public class Radio {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+class Radio {
     private int currentRadioStation;
     private int minRadioStation;
     private int maxRadioStation = 10;
