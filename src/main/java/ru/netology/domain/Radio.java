@@ -8,9 +8,13 @@ public class Radio {
     private int minSoundVolume;
     private int maxSoundVolume = 100;
 
-    public Radio(int currentRadioStation, int currentSoundVolume) {
+    public Radio(int currentRadioStation, int minRadioStation, int maxRadioStation, int currentSoundVolume, int minSoundVolume, int maxSoundVolume) {
         this.currentRadioStation = currentRadioStation;
+        this.minRadioStation = minRadioStation;
+        this.maxRadioStation = maxRadioStation;
         this.currentSoundVolume = currentSoundVolume;
+        this.minSoundVolume = minSoundVolume;
+        this.maxSoundVolume = maxSoundVolume;
     }
 
     public int getCurrentRadioStation() {
@@ -101,7 +105,7 @@ public class Radio {
     }
 
     public void onPrevSoundVolume() {
-        if (currentSoundVolume > minRadioStation){
+        if (currentSoundVolume > minSoundVolume){
             this.currentSoundVolume--;
         }
         if (currentSoundVolume == maxSoundVolume) {
