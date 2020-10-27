@@ -7,152 +7,60 @@ import static org.junit.jupiter.api.Assertions.*;
 class RadioTest {
 
     @Test
-    public void shouldCreate ( ) {
-        Radio radio = new Radio();
+    void onNextRadioStation() {
+        Radio radio = new Radio(4, 0);
+        radio.onNextRadioStation();
+        assertEquals(5,radio.getCurrentRadioStation());
     }
 
     @Test
-    void SoundsVolumeMoreMax ( ) {
-        Radio radio = new Radio();
-        int soundVolume = 11;
-        int expected = 0;
-        radio.setSoundVolume(soundVolume);
-        assertEquals(expected, radio.getSoundVolume());
+    void onPrevRadioStation() {
+        Radio radio = new Radio(4, 0);
+        radio.onPrevRadioStation();
+        assertEquals(3,radio.getCurrentRadioStation());
     }
 
     @Test
-    void SoundsVolumeLessMin ( ) {
-        Radio radio = new Radio();
-        int soundVolume = -1;
-        int expected = 0;
-        radio.setSoundVolume(soundVolume);
-        assertEquals(expected, radio.getSoundVolume());
+    void onNextRadioStationAfterMax() {
+        Radio radio = new Radio(10, 0);
+        radio.onNextRadioStation();
+        assertEquals(0,radio.getCurrentRadioStation());
     }
 
     @Test
-    void shouldReturnSoundsVolume ( ) {
-        Radio radio = new Radio();
-        int soundVolume = 6;
-        int expected = 6;
-        radio.setSoundVolume(soundVolume);
-        assertEquals(expected, radio.getSoundVolume());
+    void onPrevRadioStationBeforeMin() {
+        Radio radio = new Radio(0, 0);
+        radio.onPrevRadioStation();
+        assertEquals(10,radio.getCurrentRadioStation());
     }
 
     @Test
-    void NextSoundVolume ( ) {
-        Radio radio = new Radio();
-        int soundVolume = 4;
-        int expected = 5;
-        radio.setSoundVolume(soundVolume);
-        radio.onNextSound();
-        assertEquals(expected, radio.getSoundVolume());
+    void onNextSoundVolume() {
+        Radio radio = new Radio(4, 7);
+        radio.onNextSoundVolume();
+        assertEquals(8,radio.getCurrentSoundVolume());
     }
 
     @Test
-    void NextSoundMax ( ) {
-        Radio radio = new Radio();
-        int soundVolume = 10;
-        int expected = 10;
-        radio.setSoundVolume(soundVolume);
-        radio.onNextSound();
-        assertEquals(expected, radio.getSoundVolume());
+    void onPrevSoundVolume() {
+        Radio radio = new Radio(4, 7);
+        radio.onPrevSoundVolume();
+        assertEquals(6,radio.getCurrentSoundVolume());
     }
 
     @Test
-    void PreviousSound ( ) {
-        Radio radio = new Radio();
-        int soundVolume = 4;
-        int expected = 3;
-        radio.setSoundVolume(soundVolume);
-        radio.onPreviousSound();
-        assertEquals(expected, radio.getSoundVolume());
+    void onNextSoundVolumeAfterMax() {
+        Radio radio = new Radio(4, 100);
+        radio.onNextSoundVolume();
+        assertEquals(100,radio.getCurrentSoundVolume());
     }
 
     @Test
-    void PreviousSoundMin ( ) {
-        Radio radio = new Radio();
-        int soundVolume = 0;
-        int expected = 0;
-        radio.setSoundVolume(soundVolume);
-        radio.onPreviousSound();
-        assertEquals(expected, radio.getSoundVolume());
-    }
-
-    @Test
-    void shouldReturnCurrentStation ( ) {
-        Radio radio = new Radio();
-        int currentStation = 6;
-        int expected = 6;
-        radio.setCurrentStation(currentStation);
-        assertEquals(expected, radio.getCurrentStation());
-    }
-
-    @Test
-    void shouldReturnCurrentStationMore ( ) {
-        Radio radio = new Radio();
-        int currentStation = 10;
-        int expected = 0;
-        radio.setCurrentStation(currentStation);
-        assertEquals(expected, radio.getCurrentStation());
-    }
-
-    @Test
-    void shouldReturnCurrentStationLess ( ) {
-        Radio radio = new Radio();
-        int currentStation = -1;
-        int expected = 0;
-        radio.setCurrentStation(currentStation);
-        assertEquals(expected, radio.getCurrentStation());
-    }
-
-    @Test
-    void NextStation ( ) {
-        Radio radio = new Radio();
-        int currentStation = 4;
-        int expected = 5;
-        radio.setCurrentStation(currentStation);
-        radio.onNextStation();
-        assertEquals(expected, radio.getCurrentStation());
-    }
-
-    @Test
-    void NextStationAfterEight ( ) {
-        Radio radio = new Radio();
-        int currentStation = 8;
-        int expected = 9;
-        radio.setCurrentStation(currentStation);
-        radio.onNextStation();
-        assertEquals(expected, radio.getCurrentStation());
-    }
-
-    @Test
-    void NextStationMax ( ) {
-        Radio radio = new Radio();
-        int currentStation = 9;
-        int expected = 0;
-        radio.setCurrentStation(currentStation);
-        radio.onNextStation();
-        assertEquals(expected, radio.getCurrentStation());
-    }
-
-    @Test
-    void PreviousStationMin ( ) {
-        Radio radio = new Radio();
-        int currentStation = 0;
-        int expected = 9;
-        radio.setCurrentStation(currentStation);
-        radio.onPreviousStation();
-        assertEquals(expected, radio.getCurrentStation());
-    }
-
-    @Test
-    void PreviousStation ( ) {
-        Radio radio = new Radio();
-        int currentStation = 4;
-        int expected = 3;
-        radio.setCurrentStation(currentStation);
-        radio.onPreviousStation();
-        assertEquals(expected, radio.getCurrentStation());
+    void onPrevSoundVolumeBeforeMin() {
+        Radio radio = new Radio(4, 0);
+        radio.onPrevSoundVolume();
+        assertEquals(0,radio.getCurrentSoundVolume());
     }
 }
+
 
