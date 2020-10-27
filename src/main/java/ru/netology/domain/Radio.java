@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 class Radio {
     private int currentRadioStation;
@@ -19,6 +19,7 @@ class Radio {
         this.currentRadioStation = currentRadioStation;
         this.currentSoundVolume = currentSoundVolume;
     }
+
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
