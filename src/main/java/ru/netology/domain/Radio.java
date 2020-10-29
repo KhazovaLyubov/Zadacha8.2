@@ -1,73 +1,79 @@
 package ru.netology.domain;
 
-public class Radio {
-    private int currentStation;
-    private int soundVolume;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    public int getCurrentStation ( ) {
-        return currentStation;
-    }
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+class Radio {
+    private int currentRadioStation;
+    private int minRadioStation;
+    private int maxRadioStation;
+    private int currentSoundVolume;
+    private int minSoundVolume;
+    private int maxSoundVolume;
 
-    public void onNextSound ( ) {
-        if (soundVolume == 10) {
-        }
-        if (soundVolume < 10) {
-            this.soundVolume++;
-        }
 
-    }
-
-    public void onPreviousSound ( ) {
-        if (soundVolume > 0) {
-            this.soundVolume--;
-        }
-        if (soundVolume == 0) {
-        }
-    }
-
-    public void setCurrentStation ( int currentStation ) {
-        if (currentStation > 9) {
+    public void setCurrentRadioStation(int currentRadioStation) {
+        if (currentRadioStation > maxRadioStation) {
             return;
         }
-        if (currentStation < 0) {
+        if (currentRadioStation < minRadioStation){
             return;
         }
-        this.currentStation = currentStation;
+        this.currentRadioStation = currentRadioStation;
     }
 
-    public void onNextStation ( ) {
-        if (currentStation <= 9) {
-            this.currentStation++;
-        }
-        if (currentStation > 9) {
-            this.currentStation = 0;
-
-        }
-    }
-
-    public void onPreviousStation ( ) {
-        if (currentStation > 0) {
-            this.currentStation--;
-        }
-        if (currentStation == 0) {
-            this.currentStation = 9;
-        }
-    }
-
-    public int getSoundVolume ( ) {
-        return soundVolume;
-    }
-
-    public void setSoundVolume ( int soundVolume ) {
-        if (soundVolume > 10) {
+    public void setCurrentSoundVolume(int currentSoundVolume) {
+        if (currentSoundVolume >= maxSoundVolume){
+            this.currentSoundVolume = maxSoundVolume;
             return;
         }
-        if (soundVolume < 0) {
+        if (currentSoundVolume <= minSoundVolume){
             return;
         }
-        this.soundVolume = soundVolume;
+        this.currentSoundVolume = currentSoundVolume;
+    }
+
+    public void onNextRadioStation() {
+        if (currentRadioStation < maxRadioStation){
+            this.currentRadioStation++;
+        }
+        if (currentRadioStation == maxRadioStation){
+            this.currentRadioStation = minRadioStation;
+        }
+    }
+
+    public void onPrevRadioStation() {
+        if (currentRadioStation > minRadioStation){
+            this.currentRadioStation--;
+        }
+        if (currentRadioStation == minRadioStation){
+            this.currentRadioStation = maxRadioStation;
+        }
+    }
+
+    public void onNextSoundVolume(){
+        if (currentSoundVolume < maxSoundVolume){
+            this.currentSoundVolume++;
+        }
+        if (currentSoundVolume == maxSoundVolume){
+        }
+    }
+
+    public void onPrevSoundVolume() {
+        if (currentSoundVolume > minRadioStation){
+            this.currentSoundVolume--;
+        }
+        if (currentSoundVolume == maxSoundVolume) {
+            this.currentSoundVolume = minSoundVolume;
+        }
     }
 }
+
+
 
 
 
